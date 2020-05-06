@@ -7,9 +7,10 @@
             active-text-color : 当前激活菜单的文字颜色（仅支持 hex 格式）
             unique-opened	    ：是否只保持一个子菜单的展开
             router            : 开启导航路由模式
+            @select="handSelect"
     -->
     <div class="search">
-      <el-input placeholder="请输入内容" v-model="search">
+      <el-input placeholder="Search..." v-model="search">
         <i slot="suffix" class="el-input__icon el-icon-search"></i>
       </el-input>
     </div>
@@ -18,7 +19,7 @@
       class="el-menu-vertical-demo"
       unique-opened
       router
-      @select="handSelect"
+      
       background-color="#364150"
       text-color="#b4bcc8"
       active-text-color="#b4bcc8"
@@ -51,6 +52,8 @@
 </template>
 
 <script>
+import "../assets/icon/iconfont.css"
+
 export default {
   data() {
     return {
@@ -58,7 +61,7 @@ export default {
         {
           id: 1,
           index: "1",
-          cls: "el-icon-s-cooperation",
+          cls: "iconfont el-iconlightbulb",
           title: "设备监测",
           role: [1, 2], // 可访问角色有：超级管理员，普通员工
           children: [
@@ -80,7 +83,7 @@ export default {
         {
           id: 3,
           index: "3",
-          cls: "el-icon-s-goods",
+          cls: "iconfont el-iconRectangleCopy1",
           title: "用户管理",
           role: [1], // 可访问角色有：超级管理员
           children: [
@@ -93,19 +96,19 @@ export default {
         {
           id: 4,
           index: "4",
-          cls: "el-icon-s-custom",
+          cls: "iconfont el-iconchanpinguanli",
           title: "设备管理",
           role: [1, 2],
           children: [
             { index: "/home/device_list", name: "设备列表", role: [1] },
             { index: "/home/models", name: "型号列表", role: [1, 2] },
-            { index: "/home/alarms", name: "警报列表", role: [1] },
+            { index: "/home/alarms_list", name: "警报列表", role: [1] },
             { index: "/home/hisdatas", name: "历史数据", role: [1, 2] },
             { index: "/home/tags", name: "标签管理", role: [1] },
             { index: "/home/triggers", name: "警报触发器", role: [1] },
-            { index: "/home/hisdownex1", name: "下载申请审核", role: [1] },
+            { index: "/home/hisdownex", name: "下载申请审核", role: [1] },
             { index: "/home/upload", name: "数据上传", role: [2] },
-            { index: "/home/hisdownex2", name: "数据下载", role: [2] },
+            { index: "/home/datadownload", name: "数据下载", role: [2] },
             { index: "/home/genreindex", name: "型号分组", role: [1] }
           ]
         },
@@ -155,7 +158,7 @@ export default {
         }
       ],
       currentUserRole: 1, // 默认普通员工
-      search: "Search..."
+      search: ""
     };
   },
   created() {
@@ -165,9 +168,9 @@ export default {
     this.showList(this.menulist);
   },
   methods: {
-    handSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
+    // handSelect(key, keyPath) {
+    //   console.log(key, keyPath);
+    // },
     showList(menu) {
       let array = [];
       let vm = this;
@@ -205,13 +208,26 @@ export default {
   padding-top: 20px;
   .search {
     height: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .el-input {
       width: 200px;
       height: 25px;
+      color: #435060;
+      border-bottom: 1px solid #435060;
       .el-input__inner {
         width: 180px;
         height: 20px;
         border: 0;
+        padding: 0;
+        color: #4e5d6f;
+        background: #364150;
+      }
+      .el-input__icon {
+        cursor: pointer;
+        color: #4e5d6f;
+        line-height: 24px;
       }
     }
   }

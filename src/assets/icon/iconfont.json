@@ -1,0 +1,37 @@
+{
+  "id": "1799915",
+  "name": "demo",
+  "font_family": "iconfont",
+  "css_prefix_text": "el-icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9544666",
+      "name": "30、产品管理",
+      "font_class": "chanpinguanli",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "14465140",
+      "name": "lightbulb",
+      "font_class": "lightbulb",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "7551132",
+      "name": "人群",
+      "font_class": "RectangleCopy1",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "7553634",
+      "name": "销量预测",
+      "font_class": "RectangleCopy2",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    }
+  ]
+}

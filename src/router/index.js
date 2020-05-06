@@ -84,19 +84,83 @@ const routes = [
       },
       //设备管理
       {
-        path:'device_list',
-        component:()=> import('../views/Equipment/Device_list.vue'),
+        path: 'device_list',
+        component: () => import('../views/Equipment/Device_list.vue'),
         meta: [
           { name: '设备管理' },
           { name: '型号管理' }
         ]
       },
       {
-        path:'models',
-        component:()=> import('../views/Equipment/Models.vue'),
+        path: 'models',
+        component: () => import('../views/Equipment/Models.vue'),
         meta: [
           { name: '设备管理' },
           { name: '型号管理' }
+        ]
+      },
+      {
+        path: 'alarms_list',
+        component: () => import('../views/Equipment/Alarms_list.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '警报列表' }
+        ]
+      },
+      {
+        path: 'hisdatas',
+        component: () => import('../views/Equipment/Hisdatas.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '历史数据' }
+        ]
+      },
+      {
+        path: 'tags',
+        component: () => import('../views/Equipment/Tags.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '标签列表' }
+        ]
+      },
+      {
+        path: 'triggers',
+        component: () => import('../views/Equipment/Triggers.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '警报触发器' }
+        ]
+      },
+      {
+        path: 'hisdownex',
+        component: () => import('../views/Equipment/Hisdownex.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '下载申请审核' }
+        ]
+      },
+      {
+        path: 'upload',
+        component: () => import('../views/Equipment/Upload.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '数据上传' }
+        ]
+      },
+      {
+        path: 'datadownload',
+        component: () => import('../views/Equipment/Datadownload.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '数据下载' }
+        ]
+      },
+      {
+        path: 'genreindex',
+        component: () => import('../views/Equipment/Genreindex.vue'),
+        meta: [
+          { name: '设备管理' },
+          { name: '型号分组' }
         ]
       },
       //数据统计
@@ -115,9 +179,25 @@ const routes = [
           { name: '数据统计' },
           { name: '用户统计' }
         ]
-      }
+      },
       //平台系统
-      //成果管理
+      {
+        path: 'menu',
+        component: () => import('../views/Manage/Menu.vue'),
+        meta: [
+          { name: '数据统计' },
+          { name: '成果列表' }
+        ]
+      },
+      //成果管理                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      {
+        path: 'allgains',
+        component: () => import('../views/Gains/Allgains.vue'),
+        meta: [
+          { name: '数据统计' },
+          { name: '成果列表' }
+        ]
+      },
       //设备借用
     ]
   }
