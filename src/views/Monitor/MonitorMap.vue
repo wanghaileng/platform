@@ -1,12 +1,21 @@
 <template>
-  <div>
-    实时地图
-    <div id="container"></div>
+  <div id="map">
+    <div class="search"></div>
+    <div id="amap_wrapper">
+      <el-amap vid="amap" plugin="plugin" class="amap-demo"></el-amap>
+      <div class="amap_right">
+        <div class="total">
+          <h3>实时状况统计</h3>
+        </div>
+        <div class="total">
+          <h3>实时状况统计</h3>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import AMap from "//webapi.amap.com/maps?v=2.0&key=3898759649cf11b731b38f1eac2645e0";
 export default {
   data() {
     return {
@@ -20,58 +29,93 @@ export default {
         device: "hm9wvt",
         load: [
           { dev_id: "hm9wvt", data: [{ id: 1, v: [30], t: [1587975851.3602] }] }
+        ],
+        plugin: [
+          {
+            pName: "MapType",
+            defaultType: 1,
+            events: {
+              init(instance) {
+                console.log(instance);
+              }
+            }
+          }
         ]
       }
     };
   },
-  created() {
-    this.initWebSocket();
-  },
-  destroyed() {
-    this.websock.close(); //离开路由之后断开websocket连接
-  },
-  methods: {
-    initWebSocket() {
-      //初始化weosocket
-      const wsuri = "ws://106.52.169.25:9506";
-      this.websock = new WebSocket(wsuri);
-      this.websock.onmessage = this.websocketonmessage;
-      this.websock.onopen = this.websocketonopen;
-      this.websock.onerror = this.websocketonerror;
-      this.websock.onclose = this.websocketclose;
-    },
-    websocketonopen() {
-      //连接建立之后执行send方法发送数据\
-      this.websocketsend(JSON.stringify(this.message));
-    },
-    websocketonerror() {
-      //连接建立失败重连
-      this.initWebSocket();
-    },
-    websocketonmessage(e) {
-      //数据接收
-      this.websock = JSON.parse(e.data);
-      console.log(this.websock);
-    },
-    websocketsend(Data) {
-      //数据发送
-      this.websock.send(Data);
-    },
-    websocketclose(e) {
-      //关闭
-      console.log("断开连接", e);
-    },
-    //地图
-  },
-  mounted() {
-    // this.getMap();
-  }
+  // created() {
+  //   this.initWebSocket();
+  // },
+  // destroyed() {
+  //   this.websock.close(); //离开路由之后断开websocket连接
+  // },
+  // methods: {
+  //   initWebSocket() {
+  //     //初始化weosocket
+  //     const wsuri = "ws://106.52.169.25:9506";
+  //     this.websock = new WebSocket(wsuri);
+  //     this.websock.onmessage = this.websocketonmessage;
+  //     this.websock.onopen = this.websocketonopen;
+  //     this.websock.onerror = this.websocketonerror;
+  //     this.websock.onclose = this.websocketclose;
+  //   },
+  //   websocketonopen() {
+  //     //连接建立之后执行send方法发送数据\
+  //     this.websocketsend(JSON.stringify(this.message));
+  //   },
+  //   websocketonerror() {
+  //     //连接建立失败重连
+  //     this.initWebSocket();
+  //   },
+  //   websocketonmessage(e) {
+  //     //数据接收
+  //     this.websock = JSON.parse(e.data);
+  //     console.log(this.websock);
+  //   },
+  //   websocketsend(Data) {
+  //     //数据发送
+  //     this.websock.send(Data);
+  //   },
+  //   websocketclose(e) {
+  //     //关闭
+  //     console.log("断开连接", e);
+  //   }
+  // },
+  // mounted() {}
 };
 </script>
 
 <style lang="less" scoped>
-#container{
-    width: 560px;
-    height: 640px;
+#map {
+  .search {
+    height: 60px;
+  }
+  #amap_wrapper {
+    display: flex;
+    justify-content: space-around;
+    .amap-demo {
+      width: 960px;
+      height: 600px;
+    }
+    .amap_right {
+      margin-left: 50px;
+      .total {
+        box-sizing: border-box;
+        width: 180px;
+        height: 200px;
+        padding: 10px 24px 1px 24px;
+        background: #eeeeee;
+        margin-bottom: 30px;
+        box-shadow: 0px 4px 4px 0px rgba(42, 43, 43, 0.15);
+        h3 {
+          padding: 10px 0;
+          border-bottom: 1px solid #ffffff;
+          color: #888686;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
 </style>

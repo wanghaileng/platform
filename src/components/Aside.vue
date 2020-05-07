@@ -62,7 +62,7 @@ export default {
           id: 1,
           index: "1",
           cls: "iconfont el-iconlightbulb",
-          title: "设备监测",
+          title: "设备监测", //monitor
           role: [1, 2], // 可访问角色有：超级管理员，普通员工
           children: [
             { index: "/home/monitormap", name: "实时地图" },
@@ -73,7 +73,7 @@ export default {
           id: 2,
           index: "2",
           cls: "el-icon-user-solid",
-          title: "个人信息",
+          title: "个人信息",//Personal
           role: [1], // 可访问角色有：超级管理员
           children: [
             { index: "/home/messages", name: "我的消息" },
@@ -84,7 +84,7 @@ export default {
           id: 3,
           index: "3",
           cls: "iconfont el-iconRectangleCopy1",
-          title: "用户管理",
+          title: "用户管理", //Users
           role: [1], // 可访问角色有：超级管理员
           children: [
             { index: "/home/users", name: "分管理员" },
@@ -97,7 +97,7 @@ export default {
           id: 4,
           index: "4",
           cls: "iconfont el-iconchanpinguanli",
-          title: "设备管理",
+          title: "设备管理",//Equipment
           role: [1, 2],
           children: [
             { index: "/home/device_list", name: "设备列表", role: [1] },
@@ -116,7 +116,7 @@ export default {
           id: 5,
           index: "5",
           cls: "el-icon-s-data",
-          title: "数据统计",
+          title: "数据统计", //statistics
           role: [1], // 可访问角色有：超级管理员
           children: [
             { index: "/home/device_statistics", name: "设备统计" },
@@ -127,7 +127,7 @@ export default {
           id: 6,
           index: "6",
           cls: "el-icon-setting",
-          title: "平台系统",
+          title: "平台系统",//Manage
           role: [1], // 可访问角色有：超级管理员
           children: [
             { index: "/home/menu", name: "系统菜单" },
@@ -140,7 +140,7 @@ export default {
           id: 7,
           index: "7",
           cls: "el-icon-s-tools",
-          title: "成果管理",
+          title: "成果管理", //Gains
           role: [1], // 可访问角色有：超级管理员
           children: [{ index: "/home/allgains", name: "成果列表" }]
         },
